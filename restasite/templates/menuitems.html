@@ -1,0 +1,16 @@
+<div class="row">
+    {% for item in menu %}
+    <div class="col-xl-6 col-md-6 col-lg-6">
+        <div class="single_delicious d-flex align-items-center">
+            <div class="thumb">
+                <img src="{{ MEDIA_URL }} {{ item.image.url }}" alt="{{ item.title }}">
+            </div>
+            <div class="info">
+                <h3>#{{ item.id }}. {{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <span>{{ item.price }} грн.</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

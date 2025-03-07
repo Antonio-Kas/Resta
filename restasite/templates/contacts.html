@@ -1,0 +1,133 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}<title>Контакты</title>{% endblock %}
+{% block content %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Контакты</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<!-- ================ contact section start ================= -->
+<section class="contact-section">
+    <div class="container">
+        <div class="d-none d-sm-block mb-5 pb-4">
+            <div id="map" style="height: 480px; position: relative; overflow: hidden;"></div>
+            <script>
+                function initMap() {
+                    var location = { lat: 50.434723, lng: 30.531284 }; // Координаты бульвара Леси Украинки, 7
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 17,
+                        center: location,
+                        mapTypeControl: true, // Позволяет выбирать тип карты (спутник, рельеф и т.д.)
+                        zoomControl: true, // Добавляет кнопки масштабирования
+                        streetViewControl: true, // Включает режим просмотра улиц
+                    });
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        title: 'бульвар Леси Украинки, дом 7'
+                    });
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: '<strong>бульвар Леси Украинки, дом 7</strong><br>Киев, Украина'
+                    });
+
+                    marker.addListener('click', function() {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa0_w8v_yXe9GpU24c28ZwLsd3m-cxQlg&callback=initMap"></script>
+        </div>
+    </div>
+</section>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Напишите нам</h2>
+            </div>
+            <div class="col-lg-8">
+                <form class="form-contact contact_form" action="" method="post" novalidate="novalidate">
+                    {% csrf_token %}
+                    {% if success %}
+                        <div class="alert alert-danger">
+                            <strong>Спасибо за сообщение!</strong>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    {{ form.message }}
+                                </div>
+                                {% if form.message.errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ form.message.errors }}</strong>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form.name }}
+                                </div>
+                                {% if form.name.errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ form.name.errors }}</strong>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form.email }}
+                                </div>
+                                {% if form.email.errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ form.email.errors }}</strong>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="button button-contactForm boxed-btn">Отправить</button>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>бул. Леси украинки, д.5.</h3>
+                        <p>г. Тернополь</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>бул. Леси украинки, д.5.</h3>
+                        <p>г. Одесса</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>бул. Леси украинки, д.6</h3>
+                        <p>г. Киев</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->
+{% endblock %}
