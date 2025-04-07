@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
-{% block title %}<title>О нас</title>{% endblock %}
+{% block title %}<title>{{ title }}</title>{% endblock %}
 {% block content %}
 <!-- bradcam_area  -->
 <div class="bradcam_area bradcam_bg_1">
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>О нас</h3>
+                    <h3>{{ title }}</h3>
                 </div>
             </div>
         </div>
@@ -20,8 +20,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <h3>Уютное место для ваших завтраков, обедов и ужинов</h3>
-                <p>Ресторан вобрал в себя лучшие традиции европейской и средиземноморской кухни.Уютная, доброжелательная атмосфера и достойный сервис  - это основные преимущества ресторана. Все вышеперечисленное и плюс доступный уровень цен позволили заведению оказаться в списке лучших ресторанов  Киева. Секрет популярности прост - побывав здесь однажды и ощутив радушие и гостеприимство, теплый прием и заботливое обслуживание, гости непременно возвращаются вновь и рекомендуют своим друзьям.</p>
+                <h3>{{ subtitle }}</h3>
+                <p>{{ description }}</p>
             </div>
         </div>
         <div class="row justify-content-center">

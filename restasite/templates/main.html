@@ -82,14 +82,13 @@
                                 <img src="{% static 'img/footer_logo.png' %}" alt="">
                             </a>
                         </div>
-                        <p>бул. Леси украинки, д.7 <br> г. Киев <br>
-                            <a href="#">+380 96 084 1234</a> <br>
-                            <a href="#">manager@example.com</a>
-                        </p>
                         <p>
-
-
-
+                            {% for address in addresses %}
+                            {{ address.city }}, {{ address.street }} {{ address.building }}{% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                            <br>
+                            <a href="#">{{ contact_phone }}</a> <br>
+                            <a href="#">{{ contact_email }}</a>
                         </p>
                         <div class="socail_links">
                             <ul>

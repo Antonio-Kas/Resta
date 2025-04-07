@@ -3,43 +3,53 @@ from django.shortcuts import render
 from django.template.loader import get_template
 
 from restasite.forms import ContactForm
-from restasite.models import MenuItem
+from restasite.models import MenuItem, TextContent, Address
+
+
+def get_common_context():
+    """Get content used across multiple pages"""
+    addresses = Address.objects.all().order_by('order')
+    return {
+        'contact_phone': TextContent.objects.get(key='contact_phone').content,
+        'contact_email': TextContent.objects.get(key='contact_email').content,
+        'addresses': addresses,
+    }
 
 
 def index(request):
-    menu_brk = MenuItem.objects.filter(type__exact='BRK').order_by('?')[:6]
-    menu_lun = MenuItem.objects.filter(type__exact='LUN').order_by('?')[:6]
-    menu_din = MenuItem.objects.filter(type__exact='DIN').order_by('?')[:6]
-    context = {'menu_brk': menu_brk, 'menu_lun': menu_lun, 'menu_din': menu_din}
-    return render(
-        request,
-        'index.html',
-        context=context
-    )
+    context = {
+        'slider_title': TextContent.objects.get(key='slider_title').content,
+        'about_section_title': TextContent.objects.get(key='about_section_title').content,
+        'about_section_description': TextContent.objects.get(key='about_section_description').content,
+        'menu_din': MenuItem.objects.filter(type='DIN'),
+        'menu_brk': MenuItem.objects.filter(type='BRK'),
+        'menu_lun': MenuItem.objects.filter(type='LUN'),
+        **get_common_context()
+    }
+    return render(request, 'index.html', context)
 
 
 def about(request):
-    return render(
-        request,
-        'about.html'
-    )
+    context = {
+        'title': TextContent.objects.get(key='about_title').content,
+        'subtitle': TextContent.objects.get(key='about_subtitle').content,
+        'description': TextContent.objects.get(key='about_description').content,
+        **get_common_context()
+    }
+    return render(request, 'about.html', context)
 
 
 def contacts(request):
-    context = {}
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            send_message(form.cleaned_data['name'], form.cleaned_data['email'], form.cleaned_data['message'])
-            context = {'success': 1}
-    else:
-        form = ContactForm()
-    context['form'] = form
-    return render(
-        request,
-        'contacts.html',
-        context=context
-    )
+    try:
+        title = TextContent.objects.get(key='contacts_title').content
+    except TextContent.DoesNotExist:
+        title = 'Контакты'  # Default fallback
+        
+    context = {
+        'title': title,
+        **get_common_context()
+    }
+    return render(request, 'contacts.html', context)
 
 
 def send_message(name, email, message):

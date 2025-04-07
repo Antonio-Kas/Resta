@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
-{% block title %}<title>Контакты</title>{% endblock %}
+{% block title %}<title>{{ title }}</title>{% endblock %}
 {% block content %}
 <!-- bradcam_area  -->
 <div class="bradcam_area bradcam_bg_2">
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>Контакты</h3>
+                    <h3>{{ title }}</h3>
                 </div>
             </div>
         </div>
@@ -104,27 +104,15 @@
                 </form>
             </div>
             <div class="col-lg-3 offset-lg-1">
+                {% for address in addresses %}
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="ti-home"></i></span>
                     <div class="media-body">
-                        <h3>бул. Леси украинки, д.5.</h3>
-                        <p>г. Тернополь</p>
+                        <h3>{{ address.street }} {{ address.building }}</h3>
+                        <p>{{ address.city }}</p>
                     </div>
                 </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-home"></i></span>
-                    <div class="media-body">
-                        <h3>бул. Леси украинки, д.5.</h3>
-                        <p>г. Одесса</p>
-                    </div>
-                </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-home"></i></span>
-                    <div class="media-body">
-                        <h3>бул. Леси украинки, д.6</h3>
-                        <p>г. Киев</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

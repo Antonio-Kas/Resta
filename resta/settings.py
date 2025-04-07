@@ -28,8 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
 # Application definition
 
@@ -85,7 +84,11 @@ DATABASES = {
         'USER': os.getenv('DB_USER', 'root'),            
         'PASSWORD': os.getenv('DB_PASS', ''),            
         'NAME': os.getenv('DB_NAME', 'my_database'),    
-        'PORT': os.getenv('DB_PORT', '3306'),           
+        'PORT': os.getenv('DB_PORT', '3306'),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 

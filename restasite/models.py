@@ -17,3 +17,23 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.title
+
+class TextContent(models.Model):
+    key = models.CharField(max_length=100, unique=True)
+    content = models.TextField()
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.key
+
+class Address(models.Model):
+    city = models.CharField(max_length=100)
+    street = models.CharField(max_length=200)
+    building = models.CharField(max_length=50)
+    order = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.city}, {self.street} {self.building}"
+
+    class Meta:
+        ordering = ['order']

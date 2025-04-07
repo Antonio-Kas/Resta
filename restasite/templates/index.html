@@ -9,7 +9,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-xl-9 col-md-9 col-md-12">
                         <div class="slider_text text-center">
-                            <h3>Свежая и вкусная еда<br />Для вашего здоровья</h3>
+                            <h3>{{ slider_title|safe }}</h3>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-xl-9 col-md-9 col-md-12">
                         <div class="slider_text text-center">
-                            <h3>Свежая и вкусная еда<br />Для вашего здоровья</h3>
+                            <h3>{{ slider_title|safe }}</h3>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-xl-9 col-md-9 col-md-12">
                         <div class="slider_text text-center">
-                            <h3>Свежая и вкусная еда<br />Для вашего здоровья</h3>
+                            <h3>{{ slider_title|safe }}</h3>
                         </div>
                     </div>
                 </div>
@@ -56,9 +56,9 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about_info_wrap">
-                    <h3>Жизнь слишком коротка, чтобы есть невкусную еду</h3>
+                    <h3>{{ about_section_title }}</h3>
                     <span class="long_dash"></span>
-                    <p>Добро пожаловать в мир вкусной еды, где каждый аромат пробуждает воспоминания, а каждое блюдо становится настоящим праздником для души! Здесь вас ждут изысканные деликатесы, домашний уют, богатые специи и неожиданные гастрономические открытия. Наслаждайтесь теплом свежевыпеченного хлеба, насыщенностью сочных стейков, нежностью кремовых десертов и яркими красками сезонных овощей. В мире вкусной еды всегда найдется что-то особенное для каждого гурмана – будь то пряный плов, ароматный борщ или воздушный тирамису. Открывайте новые вкусы и получайте удовольствие от каждого мгновения!</p>
+                    <p>{{ about_section_description }}</p>
                     <ul class="food_list">
                         <li>
                             <img src="{% static 'img/svg_icon/salad.svg' %}" alt="">
