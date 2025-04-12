@@ -1,0 +1,18 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block welcome-msg %}
+    <h1>{% trans 'Welcome to' %} {{ extra_context.restaurant_name }} {% trans 'Admin' %}</h1>
+    <p>{% trans 'Version:' %} {{ extra_context.version }}</p>
+    <p>{% trans 'This is a custom administration interface for managing Resta restaurant content.' %}</p>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <div class="module">
+        <h2>{% trans 'Restaurant Management' %}</h2>
+        <p>{% trans 'Use the navigation menu on the left to manage your restaurant content, including menu items, addresses, and text content.' %}</p>
+    </div>
+    {{ block.super }}
+</div>
+{% endblock %} 

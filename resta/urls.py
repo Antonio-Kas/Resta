@@ -19,9 +19,11 @@ from django.contrib import admin
 from django.urls import path
 
 from restasite import views
+from restasite.admin import resta_admin_site
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('resta-admin/', resta_admin_site.urls, name='resta_admin'),
     path('', views.index, name='index'),
     path('about', views.about, name='about'),
     path('contacts', views.contacts, name='contacts'),
