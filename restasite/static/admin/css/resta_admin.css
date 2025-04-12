@@ -1,61 +1,82 @@
-/* Restaurant-themed Admin CSS */
+/* Resta Restaurant Admin CSS - Softer, Eye-Friendly Theme */
 
 :root {
-    --primary-color: #8B4513; /* Saddle Brown - warm wood color */
-    --secondary-color: #A0522D; /* Sienna - darker warm brown */
-    --accent-color: #CD5C5C; /* Indian Red - wine-like color */
-    --light-color: #F5F5DC; /* Beige - light paper/menu color */
-    --dark-color: #2F4F4F; /* Dark Slate Gray - for text */
-    --success-color: #556B2F; /* Dark Olive Green */
-    --link-color: #8B4513; /* Same as primary for consistency */
-    --link-hover-color: #CD5C5C; /* Accent color for hover */
+    /* Softer color palette */
+    --primary-color: rgba(76, 175, 80, 0.85);     /* Semi-transparent green */
+    --secondary-color: rgba(129, 199, 132, 0.75); /* Lighter green with transparency */
+    --accent-color: rgba(165, 214, 167, 0.9);     /* Very light green */
+    --light-color: rgba(232, 245, 233, 0.5);      /* Very light green background with transparency */
+    --dark-color: #2E7D32;                        /* Dark green for text - keeping good contrast for readability */
+    --success-color: rgba(76, 175, 80, 0.8);      /* Transparent success green */
+    
+    /* Additional colors */
+    --danger-color: rgba(239, 83, 80, 0.8);       /* Softer red */
+    --warning-color: rgba(255, 204, 128, 0.8);    /* Softer amber */
+    --info-color: rgba(79, 195, 247, 0.8);        /* Softer light blue */
+    --muted-color: rgba(158, 158, 158, 0.7);      /* Transparent grey */
+    --border-color: rgba(224, 224, 224, 0.5);     /* Very light transparent grey */
+    --text-color: rgba(66, 66, 66, 0.9);          /* Soft dark grey for text */
+    --text-light: rgba(158, 158, 158, 0.9);       /* Soft medium grey */
+    --white: rgba(255, 255, 255, 0.95);           /* Slightly transparent white */
+    --link-color: rgba(56, 142, 60, 0.85);        /* Softer dark green for links */
+    --link-hover-color: rgba(129, 199, 132, 0.9); /* Soft green for hover */
     --header-font: 'Playfair Display', serif;
     --body-font: 'Poppins', sans-serif;
+    --text-on-dark: rgba(255, 255, 255, 0.95);    /* Slightly transparent white text */
+    --text-on-light: rgba(46, 125, 50, 0.9);      /* Transparent dark green text */
+    
+    /* Shadow variables */
+    --soft-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --medium-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Styles */
 body {
     font-family: var(--body-font);
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: #f9f9f9; /* Very light grey background */
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Header */
+/* Header - more subtle */
 #header {
     background: var(--primary-color);
-    color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: var(--white);
+    box-shadow: var(--soft-shadow);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #branding h1 {
     font-family: var(--header-font);
-    font-weight: 700;
+    font-weight: 600; /* Not too heavy */
 }
 
 #branding h1 a {
-    color: white;
-    font-size: 24px;
-    letter-spacing: 1px;
+    color: var(--white);
+    font-size: 22px;
+    letter-spacing: 0.5px;
 }
 
 #branding h1 a:hover {
-    color: var(--light-color);
+    color: var(--white);
     text-decoration: none;
 }
 
 .fa-utensils {
     margin-right: 8px;
+    opacity: 0.9;
 }
 
-/* User Tools */
+/* User Tools - more gentle */
 #user-tools {
-    padding: 10px 20px;
+    padding: 8px 20px;
 }
 
 .custom-user-tools {
     background-color: var(--secondary-color);
-    border-radius: 8px;
+    border-radius: 6px;
     margin-top: 5px;
+    box-shadow: var(--soft-shadow);
 }
 
 .userlinks-wrapper {
@@ -65,8 +86,9 @@ body {
 }
 
 .welcome-user {
-    color: white;
+    color: var(--white);
     font-size: 14px;
+    opacity: 0.9;
 }
 
 .userlinks {
@@ -75,16 +97,18 @@ body {
 }
 
 .userlinks a {
-    color: white;
+    color: var(--white);
     padding: 5px 10px;
     border-radius: 4px;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
     font-size: 14px;
+    opacity: 0.9;
 }
 
 .userlinks a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    opacity: 1;
 }
 
 .viewsite-link, .password-link, .logout-link {
@@ -96,56 +120,105 @@ body {
 }
 
 .welcome-message {
-    background-color: var(--light-color);
-    border-left: 4px solid var(--accent-color);
+    background-color: rgba(232, 245, 233, 0.5);
+    border-left: 3px solid var(--accent-color);
     padding: 10px 15px;
     margin: 10px 0;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--soft-shadow);
 }
 
 .welcome-message p {
     margin: 0;
-    color: var(--dark-color);
+    color: var(--text-color);
 }
 
 .welcome-text {
     font-style: italic;
+    opacity: 0.85;
 }
 
-/* Main Content */
+/* Main Content - softer appearance */
 #content {
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: var(--soft-shadow);
+    margin: 10px;
 }
 
 .module h2, .module caption, .inline-group h2 {
     background: var(--secondary-color);
-    color: white;
+    color: var(--white) !important;
     font-family: var(--header-font);
     border-radius: 5px 5px 0 0;
+    font-weight: 500;
+    padding: 10px 12px;
 }
 
 .dashboard .module table th {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--white) !important;
+    font-weight: 500;
 }
 
 .form-row {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5);
     padding: 12px 0;
 }
 
-/* Buttons */
+/* App List Styling - Fix for text visibility with reduced contrast */
+.app-restasite .model-menuitem,
+.app-restasite .model-address,
+.app-restasite .model-textcontent,
+.app-restasite caption,
+.app-restasite th,
+.app-restasite td {
+    color: var(--text-on-dark) !important;
+}
+
+.app-restasite a {
+    color: var(--white) !important;
+    font-weight: 500;
+}
+
+.app-restasite a:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+/* Fix for module headers - less harsh */
+.module caption, .module h2 {
+    color: var(--white) !important;
+    font-weight: 500;
+}
+
+/* Fix for app names - more pleasant */
+.app-restasite .section {
+    color: var(--white) !important;
+    background-color: rgba(76, 175, 80, 0.75);
+    padding: 8px 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Buttons - softer appearance */
 .button, input[type=submit], input[type=button], .submit-row input {
     background: var(--primary-color);
-    color: white;
+    color: var(--white);
     border-radius: 4px;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    border: none;
+    padding: 8px 15px;
+    font-weight: 500;
+    box-shadow: var(--soft-shadow);
 }
 
 .button:hover, input[type=submit]:hover, input[type=button]:hover, 
 .submit-row input:hover {
     background: var(--secondary-color);
+    box-shadow: var(--medium-shadow);
 }
 
 .button.default, input[type=submit].default, .submit-row input.default {
@@ -154,66 +227,75 @@ body {
 
 .button.default:hover, input[type=submit].default:hover, 
 .submit-row input.default:hover {
-    background: #B33A3A; /* Darker accent color */
+    background: rgba(76, 175, 80, 0.9);
 }
 
-/* Links */
+/* Links - softer appearance */
 a:link, a:visited {
     color: var(--link-color);
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--link-hover-color);
+    text-decoration: underline;
 }
 
-/* Tables */
+/* Tables - softer appearance */
 table {
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--soft-shadow);
+    border: 1px solid rgba(224, 224, 224, 0.5);
 }
 
 thead th {
     background: var(--secondary-color);
-    color: white;
-    font-weight: bold;
+    color: var(--white) !important;
+    font-weight: 500;
+    padding: 10px;
 }
 
 tr:nth-child(even) {
-    background-color: rgba(245, 245, 220, 0.7);
+    background-color: rgba(242, 242, 242, 0.5);
 }
 
 tbody tr:hover {
-    background-color: rgba(205, 92, 92, 0.1);
+    background-color: rgba(232, 245, 233, 0.7);
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs - more subtle */
 div.breadcrumbs {
     background: var(--secondary-color);
-    color: white;
-    padding: 12px 15px;
+    color: var(--white);
+    padding: 10px 15px;
     font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
 div.breadcrumbs a {
-    color: white;
+    color: var(--white);
+    opacity: 0.9;
 }
 
 div.breadcrumbs a:hover {
-    color: var(--light-color);
+    color: white;
     text-decoration: underline;
+    opacity: 1;
 }
 
-/* Dashboard */
+/* Dashboard Modules - softer appearance */
 .dashboard .module {
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--soft-shadow);
     margin-bottom: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(232, 245, 233, 0.7);
 }
 
-/* Form elements */
+/* Form elements - softer appearance */
 input, textarea, select, .form-row p, form .button {
     border-radius: 4px;
     margin: 2px 0;
@@ -223,17 +305,21 @@ input, textarea, select, .form-row p, form .button {
 input[type="text"], input[type="password"], input[type="email"], 
 input[type="number"], input[type="url"], input[type="tel"], textarea, select, 
 .vTextField {
-    border: 1px solid #ddd;
+    border: 1px solid rgba(224, 224, 224, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+    padding: 8px 10px;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
 input[type="number"]:focus, input[type="url"]:focus, input[type="tel"]:focus,
 textarea:focus, select:focus, .vTextField:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 0 5px rgba(205, 92, 92, 0.3);
+    box-shadow: 0 0 6px rgba(129, 199, 132, 0.25);
+    background-color: white;
 }
 
-/* Messages */
+/* Messages - gentler, less harsh colors */
 .messagelist {
     padding: 0;
 }
@@ -244,30 +330,32 @@ textarea:focus, select:focus, .vTextField:focus {
     border-radius: 4px;
     display: flex;
     align-items: center;
+    box-shadow: var(--soft-shadow);
 }
 
 .messagelist li.success {
-    background-color: #dff0d8;
-    border-left: 5px solid var(--success-color);
-    color: #3c763d;
+    background-color: rgba(232, 245, 233, 0.8);
+    border-left: 4px solid var(--success-color);
+    color: rgba(46, 125, 50, 0.9);
 }
 
 .messagelist li.warning {
-    background-color: #fcf8e3;
-    border-left: 5px solid #f0ad4e;
-    color: #8a6d3b;
+    background-color: rgba(255, 248, 225, 0.8);
+    border-left: 4px solid rgba(255, 193, 7, 0.8);
+    color: rgba(255, 143, 0, 0.9);
 }
 
 .messagelist li.error {
-    background-color: #f2dede;
-    border-left: 5px solid #d9534f;
-    color: #a94442;
+    background-color: rgba(255, 235, 238, 0.8);
+    border-left: 4px solid rgba(244, 67, 54, 0.8);
+    color: rgba(198, 40, 40, 0.9);
 }
 
 .messagelist li::before {
     margin-right: 10px;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
+    opacity: 0.8;
 }
 
 .messagelist li.success::before {
@@ -282,18 +370,20 @@ textarea:focus, select:focus, .vTextField:focus {
     content: '\f00d';
 }
 
-/* Login Page */
+/* Login Page - more elegant, less contrasty */
 .login {
-    background: url('/static/admin/img/restaurant-bg.jpg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/static/admin/img/restaurant-bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 .login #container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    padding: 25px;
     max-width: 400px;
+    margin: 100px auto;
+    backdrop-filter: blur(5px);
 }
 
 .login #header {
@@ -302,8 +392,9 @@ textarea:focus, select:focus, .vTextField:focus {
 }
 
 .login #header h1 a {
-    color: var(--primary-color);
-    font-size: 28px;
+    color: var(--dark-color);
+    font-size: 26px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .login .form-row {
@@ -311,8 +402,8 @@ textarea:focus, select:focus, .vTextField:focus {
 }
 
 .login .form-row label {
-    color: var(--dark-color);
-    font-weight: bold;
+    color: var(--text-color);
+    font-weight: 500;
 }
 
 .login .submit-row {
@@ -324,28 +415,132 @@ textarea:focus, select:focus, .vTextField:focus {
     width: 100%;
     padding: 10px;
     font-size: 16px;
+    background-color: var(--primary-color);
+    box-shadow: var(--soft-shadow);
 }
 
-/* Dark mode media query */
+.login .submit-row input:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--medium-shadow);
+}
+
+/* App modules in admin index */
+#content-main .app-restasite .model-menuitem th,
+#content-main .app-restasite .model-address th,
+#content-main .app-restasite .model-textcontent th,
+#content-main .app-restasite .model-menuitem td,
+#content-main .app-restasite .model-address td,
+#content-main .app-restasite .model-textcontent td {
+    color: var(--text-on-dark) !important;
+}
+
+/* Ensure all table headers and cells have appropriate contrast but not harsh */
+table th a, table th {
+    color: var(--white) !important;
+}
+
+table td a, table td {
+    color: var(--text-color) !important;
+}
+
+/* Fix for the app modules in dashboard */
+.dashboard .module table {
+    background-color: rgba(129, 199, 132, 0.6);
+}
+
+.dashboard .module table tbody tr:hover {
+    background-color: rgba(129, 199, 132, 0.3);
+}
+
+.dashboard .module table tbody tr a {
+    color: var(--text-on-dark) !important;
+    font-weight: 500;
+}
+
+.dashboard .module table tbody tr a:hover {
+    color: white !important;
+}
+
+/* Action buttons in list views */
+.object-tools a {
+    background-color: var(--primary-color);
+}
+
+.object-tools a:hover, .object-tools a:focus {
+    background-color: var(--secondary-color);
+}
+
+/* Pagination styling */
+.paginator a:link, .paginator a:visited {
+    background: var(--light-color);
+    color: var(--primary-color);
+}
+
+.paginator a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.paginator .this-page {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Dark mode - gentler transitions, less harsh contrasts */
 @media (prefers-color-scheme: dark) {
     :root {
-        --light-color: #2a2a2a;
-        --dark-color: #f0f0f0;
+        --light-color: rgba(27, 94, 32, 0.5);    /* Semi-transparent dark green */
+        --dark-color: rgba(232, 245, 233, 0.9);  /* Semi-transparent light green text */
     }
     
     body {
-        background-color: #1a1a1a;
+        background-color: #1E1E1E;  /* Dark grey background instead of pure black */
+        color: rgba(255, 255, 255, 0.85);
     }
     
     .dashboard .module {
-        background-color: #2a2a2a;
+        background-color: rgba(27, 94, 32, 0.75);  /* Semi-transparent dark green */
+        border-color: rgba(56, 142, 60, 0.3);      /* Very subtle border */
     }
     
     input[type="text"], input[type="password"], input[type="email"], 
     input[type="number"], input[type="url"], input[type="tel"], textarea, select, 
     .vTextField {
-        background-color: #333;
-        color: #f0f0f0;
-        border-color: #444;
+        background-color: rgba(46, 125, 50, 0.4);  /* Very transparent medium dark green */
+        color: rgba(232, 245, 233, 0.9);           /* Semi-transparent light green text */
+        border-color: rgba(56, 142, 60, 0.5);      /* Semi-transparent green border */
+    }
+    
+    .messagelist li.success {
+        background-color: rgba(27, 94, 32, 0.5);  /* Semi-transparent dark green */
+        color: rgba(232, 245, 233, 0.9);         /* Semi-transparent light green text */
+    }
+    
+    /* Improved dark mode button styles - less harsh */
+    .button, input[type=submit], input[type=button], .submit-row input {
+        background-color: rgba(56, 142, 60, 0.8);  /* Semi-transparent green */
+    }
+    
+    .button:hover, input[type=submit]:hover, input[type=button]:hover, 
+    .submit-row input:hover {
+        background-color: rgba(76, 175, 80, 0.9);  /* Semi-transparent lighter green */
+    }
+    
+    /* Dark mode content area */
+    #content {
+        background-color: rgba(30, 30, 30, 0.7);  /* Semi-transparent dark grey */
+    }
+    
+    /* Softer table styles in dark mode */
+    table {
+        border-color: rgba(56, 142, 60, 0.3);
+    }
+    
+    tr:nth-child(even) {
+        background-color: rgba(30, 30, 30, 0.4);
+    }
+    
+    tbody tr:hover {
+        background-color: rgba(56, 142, 60, 0.3);
     }
 } 

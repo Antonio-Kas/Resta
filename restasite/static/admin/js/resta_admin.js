@@ -4,6 +4,53 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Fix text visibility issues in the app modules
+    const fixTextVisibility = function() {
+        // Fix restasite app module text visibility
+        const restaModules = document.querySelectorAll('.app-restasite');
+        restaModules.forEach(function(module) {
+            // Fix the module header
+            const header = module.querySelector('.section');
+            if (header) {
+                header.style.color = 'white';
+                header.style.backgroundColor = '#8B4513';
+                header.style.padding = '8px 12px';
+                header.style.borderRadius = '4px';
+                header.style.fontWeight = 'bold';
+            }
+            
+            // Fix table elements
+            const table = module.querySelector('table');
+            if (table) {
+                table.style.backgroundColor = '#A0522D';
+                
+                // Fix table headers and cells
+                const cells = table.querySelectorAll('th, td');
+                cells.forEach(function(cell) {
+                    cell.style.color = 'white';
+                });
+                
+                // Fix links in table
+                const links = table.querySelectorAll('a');
+                links.forEach(function(link) {
+                    link.style.color = 'white';
+                    link.style.fontWeight = 'bold';
+                });
+            }
+        });
+        
+        // Fix any module items that might have text visibility issues
+        const moduleItems = document.querySelectorAll('.module table tr a');
+        moduleItems.forEach(function(link) {
+            link.style.color = 'white';
+            link.style.fontWeight = 'bold';
+        });
+    };
+    
+    // Call immediately and after a short delay (for any dynamically loaded content)
+    fixTextVisibility();
+    setTimeout(fixTextVisibility, 100);
+    
     // Add animation to the welcome message
     const welcomeMessage = document.querySelector('.welcome-message');
     if (welcomeMessage) {

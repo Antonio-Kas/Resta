@@ -11,6 +11,8 @@
     --link-hover-color: #CD5C5C; /* Accent color for hover */
     --header-font: 'Playfair Display', serif;
     --body-font: 'Poppins', sans-serif;
+    --text-on-dark: #FFFFFF; /* White text for dark backgrounds */
+    --text-on-light: #2F4F4F; /* Dark text for light backgrounds */
 }
 
 /* Global Styles */
@@ -120,19 +122,54 @@ body {
 
 .module h2, .module caption, .inline-group h2 {
     background: var(--secondary-color);
-    color: white;
+    color: white !important;
     font-family: var(--header-font);
     border-radius: 5px 5px 0 0;
 }
 
 .dashboard .module table th {
     background-color: var(--primary-color);
-    color: white;
+    color: white !important;
 }
 
 .form-row {
     border-bottom: 1px solid #eee;
     padding: 12px 0;
+}
+
+/* App List Styling - Fix for text visibility */
+.app-restasite .model-menuitem,
+.app-restasite .model-address,
+.app-restasite .model-textcontent,
+.app-restasite caption,
+.app-restasite th,
+.app-restasite td {
+    color: var(--text-on-dark) !important;
+}
+
+.app-restasite a {
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+.app-restasite a:hover {
+    color: #F5F5DC !important;
+}
+
+/* Fix for module headers */
+.module caption, .module h2 {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Fix for app names */
+.app-restasite .section {
+    color: white !important;
+    background-color: var(--primary-color);
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 /* Buttons */
@@ -175,7 +212,7 @@ table {
 
 thead th {
     background: var(--secondary-color);
-    color: white;
+    color: white !important;
     font-weight: bold;
 }
 
@@ -324,6 +361,43 @@ textarea:focus, select:focus, .vTextField:focus {
     width: 100%;
     padding: 10px;
     font-size: 16px;
+}
+
+/* Specific fix for the RESTASITE module in the app list */
+#content-main .app-restasite .model-menuitem th,
+#content-main .app-restasite .model-address th,
+#content-main .app-restasite .model-textcontent th,
+#content-main .app-restasite .model-menuitem td,
+#content-main .app-restasite .model-address td,
+#content-main .app-restasite .model-textcontent td {
+    color: white !important;
+}
+
+/* Ensure all table headers and cells have appropriate contrast */
+table th a, table th {
+    color: white !important;
+}
+
+table td a, table td {
+    color: var(--text-on-light) !important;
+}
+
+/* Fix for the app modules in dashboard */
+.dashboard .module table {
+    background-color: var(--secondary-color);
+}
+
+.dashboard .module table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .module table tbody tr a {
+    color: white !important;
+    font-weight: bold;
+}
+
+.dashboard .module table tbody tr a:hover {
+    color: var(--light-color) !important;
 }
 
 /* Dark mode media query */
